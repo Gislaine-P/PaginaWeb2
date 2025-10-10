@@ -1,16 +1,9 @@
 import { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
-import NavbarComponente from "./componenteNav";
-import FooterComponente from "./footer";
+import NavbarComponente from "./component/NavComp";
+import FooterComponente from "./component/footerComp"
 
 function Inicio() {
-  const [productos, setProductos] = useState([]);
 
-  useEffect(() => {
-    fetch("https://demo8730279.mockable.io/productos")
-      .then(data => setProductos(data))
-      .catch(err => console.error(err));
-  }, []);
 
   return (
     <>
@@ -21,4 +14,4 @@ function Inicio() {
   );
 }
 
-export default Inicio;
+export default Inicio

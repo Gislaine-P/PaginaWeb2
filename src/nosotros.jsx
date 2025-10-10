@@ -1,5 +1,5 @@
-import NavbarComponente from "./componenteNav"
-import FooterComponente from "./footer"
+import FooterComponente from "./component/footerComp"
+import NavbarComponente from "./component/NavComp"
 
 function Nosotros(){
     return(
