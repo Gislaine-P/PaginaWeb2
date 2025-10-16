@@ -1,24 +1,27 @@
-import { createContext } from "react";
+import { createContext, useState,useEffect } from "react";
 
-const productoContext = createContext();
+export const ProductoContext = createContext();
 
-function productoProvider({children}) {
+export function ProductoProvider({children}) {
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   
   useEffect(() => {
-    fetch("https://demo8730279.mockable.io/productos")
-      .then((response) => response.json)
-      .then((data) => setProductos(data))
-      .catch((err) => console.error(err));
+    fetch("http://demo8730279.mockable.io/productos")
+      .then((response) => response.json())
+      .then((data) => {setProductos(data);
+                        setLoading(false);
+      })
+      .catch(err => {console.error(err),
+        setLoading(false);
+      });
   }, []);
 
   return(
-    <productoContext.Provider value={productos}>
+    <ProductoContext.Provider value={{productos,loading}}>
         {children}
-    </productoContext.Provider>
+    </ProductoContext.Provider>
   )
 
 }
-
-export default { productoContext,productoProvider }

@@ -1,3 +1,6 @@
+/* =======================================
+   VARIABLES Y BASE
+   ======================================= */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,28 +16,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Links generales */
 a {
+  text-decoration: none;
   font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  transition: color 0.25s;
 }
 a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
+/* Botones base */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -44,16 +37,18 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, transform 0.2s, background 0.3s;
 }
 button:hover {
   border-color: #646cff;
+  transform: scale(1.02);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Modo claro */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -67,41 +62,81 @@ button:focus-visible {
   }
 }
 
-
-/* ----------------------- BODY ----------------------- */
+/* =======================================
+   BODY Y FONDO
+   ======================================= */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
   background: url("../Images/Fondologin.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
-/* ----------------------- NAVBAR ----------------------- */
+/* =======================================
+   NAVBAR
+   ======================================= */
 .navbar-custom {
   background: linear-gradient(90deg, #84B4FF, #96CEFF);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
 }
 
 .navbar-custom .navbar-brand {
+  margin: 0 auto;
   font-weight: bold;
   font-size: 22px;
   color: white;
 }
 
-/* ----------------------- CAROUSEL ----------------------- */
+.navbar-custom .btn-logout {
+  background: #0D47A1;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.navbar-custom .btn-logout:hover {
+  background: #1565C0;
+}
+
+/* =======================================
+   CAROUSEL
+   ======================================= */
 .carousel,
 .carousel-inner,
 .carousel-item {
-  height: 80vh; /* altura flexible */
-  max-height: 600px;
+  height: calc(100vh - 56px); /* Altura menos navbar */
+  max-height: calc(100vh - 90px);
 }
 
 .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; 
+  display: block;
 }
 
-/* ----------------------- CARDS / PRODUCTOS ----------------------- */
+@media (max-width: 768px) {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 60vh;
+    max-height: 60vh;
+  }
+}
+
+/* =======================================
+   CARDS / PRODUCTOS
+   ======================================= */
 .catalogo_productos {
   display: flex;
   flex-wrap: wrap;
@@ -114,11 +149,17 @@ body {
   width: 300px;
   padding: 20px;
   background: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   text-align: center;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 .producto img {
@@ -128,116 +169,63 @@ body {
 
 .card-title {
   font-size: 1.2rem;
-  color: #000;
+  color: #fff;
 }
 
-/* ----------------------- FORMULARIOS ----------------------- */
+/* =======================================
+   FORMULARIOS
+   ======================================= */
 .form-control,
-#Login input,
-#Registro input,
-#agregarusu input,
-#formAgregar input,
-#formAgregar textarea {
+input,
+textarea {
   border-radius: 8px;
   transition: border 0.3s, box-shadow 0.3s;
 }
 
 .form-control:focus,
-#Login input:focus,
-#Registro input:focus,
-#agregarusu input:focus,
-#formAgregar input:focus,
-#formAgregar textarea:focus {
+input:focus,
+textarea:focus {
   border-color: #03a9f4;
-  box-shadow: 0 0 5px rgba(3, 169, 244, 0.5);
+  box-shadow: 0 0 5px rgba(3,169,244,0.5);
   outline: none;
-}
-
-button,
-#Login button,
-#Perfil button,
-#Registro button,
-#agregarusu button,
-#formAgregar button {
-  border-radius: 8px;
-  font-size: 16px;
-  transition: background 0.3s, transform 0.2s;
-}
-
-button:hover,
-#Login button:hover,
-#Perfil button:hover,
-#Registro button:hover,
-#agregarusu button:hover,
-#formAgregar button:hover {
-  transform: scale(1.02);
 }
 
 .btn-azul {
   background-color: #03a9f4;
   color: white;
-  border-radius: 8px;
-  transition: 0.3s;
 }
-
 .btn-azul:hover {
   background-color: #0288d1;
   transform: scale(1.02);
 }
-
 .btn-azul-oscuro {
   background-color: #0288d1;
   color: white;
-  border-radius: 8px;
-  transition: 0.3s;
 }
-
 .btn-azul-oscuro:hover {
   background-color: #026aa7;
   transform: scale(1.02);
 }
 
-/* ----------------------- ENLACES ----------------------- */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ----------------------- MODAL ----------------------- */
-.modal-content {
-  border-radius: 12px;
-}
-
-.modal-header {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-.modal-footer {
-  border-top: none;
-}
-
-/* ----------------------- TABLAS ----------------------- */
+/* =======================================
+   TABLAS
+   ======================================= */
 .table {
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
 }
-
 .table thead {
   background: #0288d1;
   color: white;
 }
-
 .table-hover tbody tr:hover {
-  background-color: rgba(3, 169, 244, 0.1);
+  background-color: rgba(3,169,244,0.1);
 }
 
-/* ----------------------- TITULARES ----------------------- */
+/* =======================================
+   TITULARES
+   ======================================= */
 .display-4 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -248,15 +236,19 @@ h1 {
   color: #fff;
   text-align: center;
   margin-bottom: 40px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* ----------------------- RESPONSIVE CAROUSEL ----------------------- */
-@media (max-width: 768px) {
-  .carousel,
-  .carousel-inner,
-  .carousel-item {
-    height: 60vh;
-    max-height: 60vh;
-  }
+/* =======================================
+   MODALES
+   ======================================= */
+.modal-content {
+  border-radius: 12px;
+}
+.modal-header {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.modal-footer {
+  border-top: none;
 }
