@@ -8,7 +8,6 @@ function Contacto(){
     return(
         <>
         <NavbarComponente/>
-        <h1>Contacto</h1>
 
 
           <main className="container mt-5 pt-5">
