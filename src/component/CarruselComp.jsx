@@ -6,7 +6,7 @@ function CarruselComponente() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="images/inicio3.jpg"
+          src="https://i.pinimg.com/1200x/58/2c/fe/582cfef6ba64da56775eced8189ba2e1.jpg"
           alt="Primera colección"
         />
         <Carousel.Caption>
@@ -18,7 +18,7 @@ function CarruselComponente() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="images/inicio2.jpg"
+          src="https://i.pinimg.com/1200x/58/2c/fe/582cfef6ba64da56775eced8189ba2e1.jpg"
           alt="Novedades"
         />
         <Carousel.Caption>
@@ -30,7 +30,7 @@ function CarruselComponente() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="images/inicio1.jpg"
+          src="https://i.pinimg.com/1200x/58/2c/fe/582cfef6ba64da56775eced8189ba2e1.jpg"
           alt="Estilo único"
         />
         <Carousel.Caption>

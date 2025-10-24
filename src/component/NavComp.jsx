@@ -2,6 +2,17 @@ import { NavLink } from "react-router-dom";
 import { Navbar, Container, Nav, Offcanvas, Form, Button } from "react-bootstrap";
 
 function NavbarComponente() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  
+
+  const cerrarSesion = () =>{
+    localStorage.removeItem("usuario");
+    window.location.reload();
+  };
+
+
+  {/*  */}
+
   return (
     <Navbar bg="light" expand={false} fixed="top">
       <Container fluid>
@@ -29,16 +40,25 @@ function NavbarComponente() {
                 Contacto
               </Nav.Link>
             </Nav>
-            <Form className="d-flex mt-3">
-              <Form.Control type="search" placeholder="Buscar" className="me-2" />
-              <Button variant="outline-success">Buscar</Button>
-            </Form>
+
+            {/*Cuenta*/}
             <div className="border-top pt-3 mt-3">
               <p className="text-muted mb-1">
                 <strong>Mi cuenta</strong>
               </p>
-              <Nav.Link as={NavLink} to="/login">Iniciar sesión</Nav.Link>
-              <Nav.Link as={NavLink} to="/registro">Registrarse</Nav.Link>
+
+              {usuario ? (
+                <>
+              <Nav.Link as={NavLink} to="/login">Perfil</Nav.Link>
+              <Nav.Link as={NavLink} to="#" onClick={cerrarSesion}>Cerrar Sesion
+              </Nav.Link>
+              </>
+              ):(
+                <>
+                <Nav.Link as={NavLink} to="/login">Iniciar sesion</Nav.Link>
+                <Nav.Link as={NavLink} to="/registro">Registrarse</Nav.Link>
+                </>
+              )}
             </div>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

@@ -1,21 +1,25 @@
 
-/*function aumentar() {
-    cantidad++;
-    cantidadInput.value = cantidad;
-}
+import { useState } from "react";
 
-function disminuir() {
-    if (cantidad > 1) {
-        cantidad--;
-        cantidadInput.value = cantidad;
-    }
-}*/
+function ProductoInfoComponente( {producto} ) {
+  const [cantidad, setCantidad] = useState(1);
 
-/*function guardarCantidad() {
-    if (!producto) {
-        alert("No has seleccionado un producto.");
-        return;
-    }
+    
+  const aumentar = () => {
+      setCantidad(cantidad + 1);
+  };
+
+  const disminuir = () => {
+      if (cantidad > 1) {
+        setCantidad(cantidad + 1)
+      }
+  };
+
+  const guardarCantidad = () => {
+      if (!producto) {
+          alert("No has seleccionado un producto.");
+          return;
+      }
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -29,14 +33,12 @@ function disminuir() {
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
-    cantidad = 1;
-    cantidadInput.value = cantidad;
+    setCantidad(1)
 
-    alert("Producto agregado al carrito");*/
+    alert("Producto agregado al carrito");
+  };
 
-function ProductoInfoComponente( {producto} ) {
   return(
-
       <div className="Producto-cuerpo">
 
         <div className="container pt-5 mt-5">
@@ -61,6 +63,31 @@ function ProductoInfoComponente( {producto} ) {
                       {producto.precio}
                     </span>
                   </p>
+
+
+                    {/* Control de cantidad */}
+        <div className="d-flex align-items-center mb-3">
+          <button className="btn btn-outline-secondary" onClick={disminuir}>
+            -
+          </button>
+          <input
+            type="number"
+            value={cantidad}
+            readOnly
+            className="form-control text-center mx-2"
+            style={{ width: "60px" }}
+          />
+          <button className="btn btn-outline-secondary" onClick={aumentar}>
+            +
+          </button>
+        </div>
+
+        {/* Botón agregar al carrito */}
+        <button className="btn btn-success" onClick={guardarCantidad}>
+          Agregar al carrito
+        </button>
+
+
 
                 </div>   
           </div>
