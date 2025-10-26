@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { ProductoContext } from "./context/productoContext";
-import NavbarComponente from "./component/NavComp";
-import FooterComponente from "./component/footerComp";
-import CardComponente from "./component/CardComp";
-import CarruselComponente from "./component/CarruselComp";
+import { ProductoContext } from "../context/productoContext";
+import NavbarComponente from "../component/NavComp";
+import FooterComponente from "../component/footerComp";
+import CardComponente from "../component/CardComp";
+import CarruselComponente from "../component/CarruselComp";
 
 function Inicio() {
   const {productos, loading} = useContext(ProductoContext);

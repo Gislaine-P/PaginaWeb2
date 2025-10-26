@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import FooterComponente from "./component/footerComp";
-import NavbarComponente from "./component/NavComp";
-import ProductoInfoComponente from "./component/productoInfComp";
+import FooterComponente from "../component/footerComp";
+import NavbarComponente from "../component/NavComp";
+import ProductoInfoComponente from "../component/productoInfComp";
 
 
 function ProductoInformacion(){

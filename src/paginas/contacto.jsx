@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import FooterComponente from "./component/footerComp"
-import NavbarComponente from "./component/NavComp"
+import FooterComponente from "../component/footerComp"
+import NavbarComponente from "../component/NavComp"
 
 
 function Contacto(){
