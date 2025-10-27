@@ -1,0 +1,44 @@
+.producto-card {
+  transition: all 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.producto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.img-container img {
+  transition: transform 0.4s ease;
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+
+.img-container:hover img {
+  transform: scale(1.1);
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.btn-outline-success {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
